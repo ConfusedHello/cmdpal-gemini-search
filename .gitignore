@@ -1,0 +1,4 @@
+# Build outputs
+bin/
+obj/
+out/

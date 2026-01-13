@@ -1,0 +1,11 @@
+{
+  "profiles": {
+    "GeminiSearchExtension (Package)": {
+      "commandName": "MsixPackage",
+      "doNotLaunchApp": true
+    },
+    "GeminiSearchExtension (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
