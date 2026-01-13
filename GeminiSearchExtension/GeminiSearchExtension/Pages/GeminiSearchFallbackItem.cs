@@ -47,6 +47,7 @@ internal sealed partial class GoogleAISearchCommand : InvokableCommand
         
         // Use OpenUrlCommand to open the URL
         var openUrlCommand = new OpenUrlCommand(url);
-        return openUrlCommand.Invoke();
+        openUrlCommand.Invoke();
+        return CommandResult.Dismiss();
     }
 }
