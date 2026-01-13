@@ -15,7 +15,7 @@ _Or simply type your query and use the fallback command._
 The easiest way to install is using the pre-built release.
 
 ### 1. Download the Release
-Download the latest `.msixbundle` and `.cert` for your platform from the [Releases Page](/releases).
+Download the latest `.msixbundle` and `.cert` for your platform from the [Releases Page](https://github.com/ConfusedHello/cmdpal-gemini-search/releases/).
 
 ### 2. Trust the Certificate
 Because this extension is self-signed (not from the Microsoft Store), you must explicitly trust the certificate before Windows will let you install it.
