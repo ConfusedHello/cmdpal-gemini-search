@@ -2,3 +2,7 @@
 bin/
 obj/
 out/
+BundleArtifacts/
+
+# Signing Keys
+*.pfx
