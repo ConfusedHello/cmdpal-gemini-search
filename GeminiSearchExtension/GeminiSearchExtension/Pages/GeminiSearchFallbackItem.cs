@@ -12,27 +12,35 @@ namespace GeminiSearchExtension;
 internal sealed partial class GoogleAISearchFallbackItem : FallbackCommandItem
 {
     private readonly GoogleAISearchCommand _searchCommand;
+    private readonly IIconInfo _icon;
 
     public GoogleAISearchFallbackItem() : base(new GoogleAISearchCommand(), string.Empty)
     {
         _searchCommand = (GoogleAISearchCommand)Command!;
+        _icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
+        // Immediately trigger hiding logic
+        UpdateQuery(string.Empty);
     }
 
     public override void UpdateQuery(string query)
     {
         _searchCommand.Query = query;
 
-        if (string.IsNullOrWhiteSpace(query))
+        var shouldShow = !string.IsNullOrWhiteSpace(query);
+        var isCurrentlyShown = Command != null;
+
+        // Only update properties when visibility state changes
+        if (shouldShow && !isCurrentlyShown)
         {
-            Command = null; // Set command to null to hide
+            Command = _searchCommand;
+            Title = "Search with Google AI";
+            Icon = _icon;
+        }
+        else if (!shouldShow && isCurrentlyShown)
+        {
+            Command = null;
             Title = string.Empty;
             Icon = null;
-        }
-        else
-        {
-            Command = _searchCommand; // Restore command
-            Title = "Search with Google AI";
-            Icon = IconHelpers.FromRelativePath("Assets\\StoreLogo.png");
         }
     }
 }
